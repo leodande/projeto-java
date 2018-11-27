@@ -16,7 +16,7 @@ public class Notebook {
 				+ estoque + ", precoUnitario=" + precoUnitario + ", figura=" + figura + ", dataCadastro=" + dataCadastro
 				+ "]";
 	}
-
+	
 	public int getNumeroNote() {
 		return numeroNote;
 	}
@@ -71,6 +71,39 @@ public class Notebook {
 
 	public void setDataCadastro(String dataCadastro) {
 		this.dataCadastro = dataCadastro;
+	}
+	
+	public Notebook() {
+		super();
+	}
+	
+	public Notebook(int numeroNote, String modelo, String descricao, int estoque, double precoUnitario, String figura, String dataCadastro) {
+		super();
+		
+	
+		this.numeroNote = numeroNote;
+		this.modelo = modelo;
+		this.descricao = descricao;
+		this.estoque = estoque;
+		this.precoUnitario = precoUnitario;
+		this.figura = figura;
+		this.dataCadastro = dataCadastro;
+		
+		
+	}
+	
+	public void mostrar() {
+		
+		System.out.println("Número do Notebook: " + this.numeroNote);
+		System.out.println("Modelo: " + this.modelo);
+		System.out.println("Descrição: " + this.descricao);
+		System.out.println("Estoque: " + this.estoque);
+		System.out.println("Preço Unitário: " + this.precoUnitario);
+		System.out.println("Figura: " + this.figura);
+		System.out.println("Data do Cadastro: " + this.dataCadastro);
+		
+		
+
 	}
 
 }

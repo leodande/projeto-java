@@ -26,4 +26,18 @@ public class ItemDePedido {
 		this.subtotal = subtotal;
 	}
 
+	public ItemDePedido(int qtde,  double subtotal) {
+		super();
+		
+		this.qtde = qtde;
+		this.subtotal = subtotal;
+			
+	}
+	
+	public void mostrar() {
+		
+		System.out.println("Quantidade: " + this.qtde);
+		System.out.println("Subtotal: " + this.subtotal);
+		
+	}
 }

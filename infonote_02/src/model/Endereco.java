@@ -3,12 +3,12 @@ package model;
 public class Endereco {
 
 	public String logradouro;
-	public String numero;
+	public int numero;
 	public String complemento;
 	public String bairro;
 	public String cidade;
 	public String estado;
-	public String cep;
+	public double cep;
 
 	public String getLogradouro() {
 		return logradouro;
@@ -24,11 +24,11 @@ public class Endereco {
 		this.logradouro = logradouro;
 	}
 
-	public String getNumero() {
+	public int getNumero() {
 		return numero;
 	}
 
-	public void setNumero(String numero) {
+	public void setNumero(int numero) {
 		this.numero = numero;
 	}
 
@@ -64,11 +64,41 @@ public class Endereco {
 		this.estado = estado;
 	}
 
-	public String getCep() {
+	public double getCep() {
 		return cep;
 	}
 
-	public void setCep(String cep) {
+	public void setCep(double cep) {
 		this.cep = cep;
+	}
+	
+	public Endereco() {
+		super();
+	}
+	
+	public Endereco(String logradouro, int numero, String complemento,
+			String bairro, String cidade, String estado, double cep) {
+		super();
+		
+		this.logradouro = logradouro;
+		this.numero = numero;
+		this.complemento = complemento;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.estado = estado;
+		this.cep = cep;
+		
+		
+	}
+	
+	public void mostrar() {
+		
+		System.out.println("Logradouro: " + this.logradouro);
+		System.out.println("Número: " + this.numero);
+		System.out.println("Complemento: " + this.complemento);
+		System.out.println("Bairro: " + this.bairro);
+		System.out.println("Cidade: " + this.cidade);
+		System.out.println("Estado: " + this.estado);
+		System.out.println("CEP: " + this.cep);
 	}
 }

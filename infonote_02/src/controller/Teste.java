@@ -6,66 +6,32 @@ public class Teste {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Usuario user = new Usuario(1, "joseph", "climber", "Joseph Climber", "josephclimber@gmail.com", "2222-3344");
 		
-		ItemDePedido Idp1 = new ItemDePedido();
-		Idp1.setQtde(2);
-		Idp1.setSubtotal(22.98);
-		System.out.println(Idp1.toString());
-
-		ItemDePedido Idp2 = new ItemDePedido();
-		Idp2.setQtde(1);
-		Idp2.setSubtotal(98.75);
-		System.out.println(Idp2.toString());
+		user.mostrar();
 		
-		Usuario cliente =  new Usuario();
-		cliente.setMatricula(201);
-		cliente.setLogin("111");
-		cliente.setSenha("");
-		cliente.setNome("João");
-		cliente.setEmail("j.c@gmail.com");
-		cliente.setTelefone("");
-		System.out.println(cliente.toString());
+		Endereco end1 = new Endereco("rua", 220, "casa", "Irajá", "Rio de Janeiro", "RJ", 21250-260);
 		
-		Endereco end = new Endereco();
-		end.setBairro("");
-		end.setCidade("");
-		end.setCep("");
-		end.setLogradouro("");
-		end.setComplemento("");
-		end.setEstado("");
-		end.setNumero("");
-		System.out.println(end.toString());
+		end1.mostrar();
 		
-		Notebook note = new Notebook();
-		note.setDescricao(null);
-		note.setModelo("Intel");
-		note.setNumeroNote(2002-4);
-		note.setDataCadastro("0001-5");
-		note.setFigura("");
-		note.setPrecoUnitario(2.000);
+		ItemDePedido ped1 = new ItemDePedido(2 , 22.98);
+		ItemDePedido ped2 = new ItemDePedido(1, 98.75);
 		
-		note.setDescricao(null);
-		note.setModelo("CCE");
-		note.setNumeroNote(2044-4);
-		note.setDataCadastro("0456-5");
-		note.setFigura("");
-		note.setPrecoUnitario(1500.00);
+		ped1.mostrar();
+		ped2.mostrar();
 		
-		note.setDescricao(null);
-		note.setModelo("Positivo");
-		note.setNumeroNote(2012-4);
-		note.setDataCadastro("00063-5");
-		note.setFigura("");
-		note.setPrecoUnitario(1.800);
-		System.out.println(note.toString());
+		//int numeroNote, String modelo, String descricao, int estoque, double precoUnitario, String figura, String dataCadastro
+		Notebook note1 = new Notebook(null, "Intel", "", 20024, "2.000", "", "25-01-2005");
+		Notebook note2 = new Notebook(null, "CCE", "", 20444, "1.500", "", "04-10-2016");
+		Notebook note3 = new Notebook(null, "Positivo", "", 20124, "1.800", "", "10-06-2017");
 		
-		Pedido pdd = new Pedido();
-		pdd.setNumero("");
-		pdd.setDataEmissao("23-11-2018");
-		pdd.setFormaDePagamento("");
-		pdd.setValorTotal("");
-		pdd.setSituacao("");
+		note1.mostar();
+		note2.mostar();
+		note3.mostar();
 		
+		Pedido ped = new Pedido(0001, "23-11-2018", "", 1.200, "");
+		
+		ped.mostar();
 	}
 	
 	
