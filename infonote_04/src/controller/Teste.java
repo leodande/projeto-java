@@ -20,7 +20,6 @@ public class Teste {
 		ped1.mostrar();
 		ped2.mostrar();
 		
-		//int numeroNote, String modelo, String descricao, int estoque, double precoUnitario, String figura, String dataCadastro
 		Notebook note1 = new Notebook(1, "Intel", "16GB e 1TB", 20024, 2.000, "note01.jpg", "25-01-2005");
 		Notebook note2 = new Notebook(2, "CCE", "16GB", 20444, 1.500, "note03.jpg", "04-10-2016");
 		Notebook note3 = new Notebook(3, "Positivo", "16GB", 20124, 1.800, "note04.jpg", "10-06-2017");
@@ -33,7 +32,9 @@ public class Teste {
 		
 		ped.mostrar();
 	}
+		
+	}
 	
 	
 
-}
+

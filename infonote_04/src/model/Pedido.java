@@ -2,11 +2,11 @@ package model;
 
 public class Pedido {
 
-	public int numero;
-	public String dataEmissao;
-	public String formaDePagamento;
-	public double valorTotal;
-	public String situacao;
+	private int numero;
+	private String dataEmissao;
+	private String formaDePagamento;
+	private double valorTotal;
+	private String situacao;
 	
 	@Override
 	public String toString() {
