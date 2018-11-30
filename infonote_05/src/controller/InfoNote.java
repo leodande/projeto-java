@@ -176,7 +176,7 @@ public class InfoNote {
 			return;
 		}
 
-		ItemDePedido item = ItemDePedido(1, aux.getPrecoUnitario(), aux);
+		ItemDePedido item = new ItemDePedido(1, aux.getPrecoUnitario(), aux);
 
 		pedido.inserirItem(item);
 	}

@@ -79,19 +79,19 @@ public class Usuario {
 	
 	
 	public boolean inserirPedido(Pedido pedido) {
-		for (int i = 0; i < pedidos.length; i++);
+		for (int i = 0; i < pedidos.length; i++) {
 			if(pedidos[i] == null) {
-				pedidos[i] = pedidos;
+				pedidos[i] = pedido;
 				return true;
 			}
-	
+		}
 			return false;
 	}
 	
 	public boolean inserirEndereco (Endereco end) {
-		for (int i = 0; i < enderecos.length; i++) {
-				if(enderecos[i] == null) {
-					enderecos[i] = end;
+		for (int i = 0; i < endereco.length; i++) {
+				if(endereco[i] == null) {
+					endereco[i] = end;
 					return true;
 				}
 		}

@@ -70,7 +70,7 @@ public class Pedido {
 	}
 
 	public boolean inserirItem(ItemDePedido item) {
-		for (int i = 0; i< itens.length; i++);
+		for (int i = 0; i< itens.length; i++) {
 			if (itens[i] == null) {
 				itens[i] = item;
 				return true;
@@ -79,7 +79,7 @@ public class Pedido {
 	return false;
 	}
 
-	//public void  mostrar() {
+	public void  mostrar() {
 		
 		System.out.println("\n\nItens do Pedido:\n");
 			for (int i = 0; i< itens.length; i++) {
