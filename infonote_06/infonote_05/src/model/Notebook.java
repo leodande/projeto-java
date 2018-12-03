@@ -1,8 +1,7 @@
 package model;
 
 public class Notebook {
-	
-	private String serialNote;
+
 	private int numeroNote;
 	private String modelo;
 	private String descricao;
@@ -11,16 +10,13 @@ public class Notebook {
 	private String figura;
 	private String dataCadastro;
 
-	
-	
-	public String getSerialNote() {
-		return serialNote;
+	@Override
+	public String toString() {
+		return "Notebook [numeroNote=" + numeroNote + ", modelo=" + modelo + ", descricao=" + descricao + ", estoque="
+				+ estoque + ", precoUnitario=" + precoUnitario + ", figura=" + figura + ", dataCadastro=" + dataCadastro
+				+ "]";
 	}
-
-	public void setSerialNote(String serialNote) {
-		this.serialNote = serialNote;
-	}
-
+	
 	public int getNumeroNote() {
 		return numeroNote;
 	}
@@ -76,15 +72,15 @@ public class Notebook {
 	public void setDataCadastro(String dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
-
+	
 	public Notebook() {
 		super();
 	}
 	
-	public Notebook(String serialNote, int numeroNote, String modelo, String descricao, int estoque, double precoUnitario, String figura, String dataCadastro) {
+	public Notebook(int numeroNote, String modelo, String descricao, int estoque, double precoUnitario, String figura, String dataCadastro) {
 		super();
 		
-		this.serialNote = serialNote;
+		this.numeroNote = numeroNote;
 		this.numeroNote = numeroNote;
 		this.descricao = descricao;
 		this.estoque = estoque;
@@ -95,24 +91,7 @@ public class Notebook {
 		
 	}
 	
-	@Override
-	public String toString() {
-		final String ENTER = "\n";
-		String retValue = "";
-		
-		retValue = "Número do Notebook: " + ENTER +
-				"Modelo: " + modelo + ENTER +
-				" Descrção: " + descricao + ENTER +
-				"Estoque: " + estoque + ENTER +
-				"Preço Unitário: " + precoUnitario + ENTER + 
-				"Figura: " + figura + ENTER +
-				"Data do Cadastro: " + ENTER + 
-				"Itens: ";
-		
-		return retValue;
-	}
-	
-	public String toString() {
+	public void mostrar() {
 		
 		System.out.println("Número do Notebook: " + this.numeroNote);
 		System.out.println("Modelo: " + this.modelo);
@@ -123,6 +102,7 @@ public class Notebook {
 		System.out.println("Data do Cadastro: " + this.dataCadastro);
 		
 		
+
 	}
 
 }
