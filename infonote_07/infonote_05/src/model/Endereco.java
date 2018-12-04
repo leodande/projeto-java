@@ -3,12 +3,12 @@ package model;
 public class Endereco {
 
 	private String logradouro;
-	private String numero;
+	private int numero;
 	private String complemento;
 	private String bairro;
 	private String cidade;
 	private String estado;
-	private String cep;
+	private double cep;
 
 	public String getLogradouro() {
 		return logradouro;
@@ -24,11 +24,11 @@ public class Endereco {
 		this.logradouro = logradouro;
 	}
 
-	public String getNumero() {
+	public int getNumero() {
 		return numero;
 	}
 
-	public void setNumero(String numero) {
+	public void setNumero(int numero) {
 		this.numero = numero;
 	}
 
@@ -64,11 +64,11 @@ public class Endereco {
 		this.estado = estado;
 	}
 
-	public String getCep() {
+	public double getCep() {
 		return cep;
 	}
 
-	public void setCep(String cep) {
+	public void setCep(double cep) {
 		this.cep = cep;
 	}
 	
@@ -76,8 +76,8 @@ public class Endereco {
 		super();
 	}
 	
-	public Endereco(String logradouro, String numero, String complemento,
-			String bairro, String cidade, String estado, String cep) {
+	public Endereco(String logradouro, int numero, String complemento,
+			String bairro, String cidade, String estado, double cep) {
 		super();
 		
 		this.logradouro = logradouro;
