@@ -67,19 +67,25 @@ public class InfoNote {
 
 	}
 
-	Usuario user;
+	Usuario user; //Não esquecer de dar o import neste objeto
 
 	Notebook notebooks[] = new Notebook[10];
 
 	Pedido pedido;
 
-	boolean logado = false;
+	private static Cliente clienteGlobal = null;
+	private static Funcionario funcionarioGlobal = null;
+	
+	boolean logado = false; //Indica se o usuário esta logado.
 
 	public InfoNote() {
 
-		//public Notebook(String serialNote, int numeroNote, String modelo, String descricao, int estoque, double precoUnitario, String figura, String dataCadastro)
-		
-		notebooks[0] = new Notebook("A1", 1, "Negativo N22BR", "CPU intel Core 2 Duo, Memória 2 GB, HD 250 GB", 6, 1200.00,	"img\\n22br.jpg", "19/05/2011");
+		// public Notebook(String serialNote, int numeroNote, String modelo, String
+		// descricao, int estoque, double precoUnitario, String figura, String
+		// dataCadastro)
+
+		notebooks[0] = new Notebook("A1", 1, "Negativo N22BR", "CPU intel Core 2 Duo, Memória 2 GB, HD 250 GB", 6,
+				1200.00, "img\\n22br.jpg", "19/05/2011");
 
 		notebooks[1] = new Notebook("B22", 2, "Bell B55BR", "CPU intel I3, Memória 4 GB, HD 500 GB", 3, 1800.00,
 				"img\\b55br.jpg", "20/05/2011");
@@ -87,11 +93,11 @@ public class InfoNote {
 		notebooks[2] = new Notebook("H02", 3, "Pompaq P41BR", "CPU intel I3, Memória 3 GB, HD 320 GB", 1, 1600.00,
 				"img\\p41br.jpg", "21/05/2011");
 
-		notebooks[3] = new Notebook("Z55", 4, "Negativo N22BR", "CPU intel Dual Core, Memória 2 GB, HD 160 GB", 5, 1100.00,
-				"img\\cr71ch.jpg", "10/05/2011");
+		notebooks[3] = new Notebook("Z55", 4, "Negativo N22BR", "CPU intel Dual Core, Memória 2 GB, HD 160 GB", 5,
+				1100.00, "img\\cr71ch.jpg", "10/05/2011");
 
-		notebooks[4] = new Notebook("K20", 5, "Negativo N22BR", "CPU AMD Phenon II, Memória 4 GB, HD 500 GB", 2, 1900.00,
-				"img\\bd22br.jpg", "10/05/2011");
+		notebooks[4] = new Notebook("K20", 5, "Negativo N22BR", "CPU AMD Phenon II, Memória 4 GB, HD 500 GB", 2,
+				1900.00, "img\\bd22br.jpg", "10/05/2011");
 
 	}
 
@@ -114,14 +120,14 @@ public class InfoNote {
 		String login, senha;
 		login = Teclado.lerTexto("Digite o login: ");
 		senha = Teclado.lerTexto("Digite a senha: ");
+		if (clienteGlobal != null) {
+			logado = clienteGlobal.validarLogin(login, senha);
+			if (logado) {
+				System.out.println("Login efetuado com sucesso!");
 
-		if (login.equals("adimin") && senha.equals("1234")) {
-			System.out.println("Login efetuado com sucesso!");
-			logado = true;
-
-		} else {
-			System.out.println("Login ou Senha inválido.");
-			efetuarLogin();
+			} else {
+				System.out.println("Login ou Senha inválido.");
+			}
 		}
 	}
 
@@ -130,15 +136,15 @@ public class InfoNote {
 		System.out.println("      InfoNote - Cadastro de Usuários.    ");
 		System.out.println("===========================================");
 
-		//Contemplando a parte do Usuário
+		// Contemplando a parte do Usuário
 		String login = Teclado.lerTexto("Login: ");
 		String senha = Teclado.lerTexto("Senha: ");
 		int tipo = 1;
-		//Contemplando a parte do Cliente
+		// Contemplando a parte do Cliente
 		String codigoCliente = Teclado.lerTexto("Codigo Cliente: ");
 		String nome = Teclado.lerTexto("Nome: ");
 		String email = Teclado.lerTexto("E-mail: ");
-		//Contemplando o Endereço
+		// Contemplando o Endereço
 		String telefone = Teclado.lerTexto("Telefone: ");
 		String logradouro = Teclado.lerTexto("Logradouro: ");
 		String numero = Teclado.lerTexto("Número: ");
@@ -150,12 +156,13 @@ public class InfoNote {
 
 		Endereco endereco = new Endereco(logradouro, numero, complemento, bairro, cidade, estado, cep);
 
-		Cliente cli = new Cliente(login, senha, tipo, codigoCliente, nome, email, telefone, endereco);
+		Cliente cliente = new Cliente(login, senha, tipo, codigoCliente, nome, email, telefone, endereco);
+		clienteGlobal = cliente;
 
 		System.out.println("===========================================");
 		System.out.println("      Usuário Cadastrado com Sucesso!     ");
 		System.out.println("===========================================");
-		System.out.println(cli);
+		System.out.println(cliente);
 		System.out.println(endereco);
 
 	}
