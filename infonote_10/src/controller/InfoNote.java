@@ -1,5 +1,8 @@
 package controller;
 
+import java.util.Date;
+import java.text.DateFormat;
+
 import model.*;
 import model.Notebook;
 import model.Pedido;
@@ -104,8 +107,10 @@ public class InfoNote {
 
 	public void mostrarMenu() {
 		System.out.println("=============================================");
-		System.out.println("    InfoNote - Se não é Info não vendemos.  ");
-
+		System.out.println("    InfoNote - Se não é Info não vendemos.  " +
+		DateFormat.getDateInstance(DateFormat.SHORT).format(new Date())
+		+ " " +
+		DateFormat.getTimeInstance().format(new Date()));
 		if (logado == true) {
 			System.out.println("Seja bem vindo, " + clienteGlobal.getNomeInvertido());
 		}
