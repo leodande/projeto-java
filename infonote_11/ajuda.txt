@@ -1,0 +1,13 @@
+	
+		("==============================");	
+		("         Ajuda InfoNote       ");
+		("==============================");
+		("1) Efetuar Login");
+		("2) Cadastrar Cliente");
+		("3) Buscar Notebook");
+		("4) Inserir Notebook no Carrinho");
+		("5) Remover Notebook no Carrinho");
+		("6) Ver Carrinho");
+		("7) Efetuar Compra");
+		("8) Sair");
+	
