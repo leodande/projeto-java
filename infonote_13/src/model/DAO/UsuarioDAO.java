@@ -1,8 +1,7 @@
 package model.DAO;
 
 import java.sql.PreparedStatement;
-
-import com.sun.corba.se.pept.transport.Connection;
+import java.sql.Connection;
 
 import model.Usuario;
 import util.Conexao;

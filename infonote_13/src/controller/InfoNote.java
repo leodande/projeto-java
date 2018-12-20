@@ -26,13 +26,10 @@ public class InfoNote {
 
 	Pedido pedido;
 
-	private static Cliente clienteGlobal = null;
+	private static Cliente cliente = null;
 	@SuppressWarnings("unused")
 	private static Funcionario funcionarioGlobal = null;
 
-	private static final int AREA_ADMINISTRATIVA = 9;
-
-	private static final int SAIR = 10;
 
 	boolean logado = false; // Indica se o usuário esta logado.
 
@@ -47,7 +44,8 @@ public class InfoNote {
 	private static final int VER_CARRINHO = 6;
 	private static final int EFETUAR_COMPRA = 7;
 	private static final int AJUDA = 8;
-	private static final int SAIR = 9;
+			private static final int AREA_ADMINISTRATIVA = 9;		;
+	private static final int SAIR = 10;
 
 	public static void main(String[] args) {
 
@@ -71,7 +69,7 @@ public class InfoNote {
 				break;
 
 			case BUSCAR_NOTEBOOK:
-				info.buscarNotebook();
+				info.buscarNotebooks();
 				break;
 
 			case INSERIR_NOTEBOOK:
@@ -150,7 +148,7 @@ public class InfoNote {
 				+ DateFormat.getDateInstance(DateFormat.SHORT).format(new Date()) + " "
 				+ DateFormat.getTimeInstance().format(new Date()));
 		if (logado == true) {
-			System.out.println("Seja bem vindo, " + clienteGlobal.getNomeInvertido());
+			System.out.println("Seja bem vindo, " + cliente.getNomeInvertido());
 		}
 
 		System.out.println("==============================================");
@@ -249,6 +247,22 @@ public class InfoNote {
 	}
 
 	public void buscarNotebooks() {
+		for (int i = 0; i < notebooks.length; i++) {
+			if (notebooks[i] != null) {
+				System.out.println(notebooks[i].getSerialNote() + "--------" + notebooks[i].getModelo());
+			}
+		}
+	}
+	
+	public void editarNotebooks() {
+		for (int i = 0; i < notebooks.length; i++) {
+			if (notebooks[i] != null) {
+				System.out.println(notebooks[i].getSerialNote() + "--------" + notebooks[i].getModelo());
+			}
+		}
+	}
+	
+	public void excluirNotebooks() {
 		for (int i = 0; i < notebooks.length; i++) {
 			if (notebooks[i] != null) {
 				System.out.println(notebooks[i].getSerialNote() + "--------" + notebooks[i].getModelo());

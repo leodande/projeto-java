@@ -11,7 +11,7 @@ import util.Conexao;
 
 public class NotebookDAO {
 		
-	public static Notebook inserir(String nome, String email, String mensagem) {
+	public static Notebook inserir(String serialNote, String modelo, String descricao, String estoque, String precoUnitario, String figura, String dataCadastro) {
 		Notebook notebook = null;
 		try {
 			
@@ -29,16 +29,20 @@ public class NotebookDAO {
 			Connection con = conex.obterConexao();
 
 			PreparedStatement comando = con.prepareStatement(sql);
-			comando.setString(1, nome);
-			comando.setString(2, email);
-			comando.setString(3, mensagem);
+			comando.setString(1, serialNote);
+			comando.setString(2, modelo);
+			comando.setString(3, descricao);
+			comando.setString(4, estoque);
+			comando.setString(5, precoUnitario);
+			comando.setString(6, figura);
+			comando.setString(7, dataCadastro);
 			
 			// Comando executado
 			comando.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		notebook = new notebook(nome, email, mensagem);
+		notebook = new notebook(serialNote, modelo, descricao, estoque, precoUnitario, figura, dataCadastro);
 		return notebook;
 	}
 	
@@ -47,7 +51,7 @@ public class NotebookDAO {
 
 		try {
 
-			String sql = "Select * from contato";
+			String sql = "Select * from notebook";
 
 			Conexao conex = new Conexao("jdbc:mysql://localhost:3306/18_conexaobd?useTimezone=true&serverTimezone=UTC",
 					"com.mysql.jbdc.Driver", "root", "alunolab");
@@ -63,8 +67,8 @@ public class NotebookDAO {
 			int i = 0;
 
 			while (rs.next()) {
-				notebook[i++] = new Notebook(rs.getInt("Id"), rs.getString("nome"), rs.getString("email"),
-						rs.getString("mensagem"));
+				notebook[i++] = new Notebooks(rs.setInt("serialNote"), rs.setString("modelo"), rs.setString("descricao"),
+						rs.setString("estoque"), rs.setString("precoUnitario"), rs.setString("figura"), rs.setString("dataCadastro"));
 			}
 
 			rs.close();
@@ -77,7 +81,7 @@ public class NotebookDAO {
 		return notebook;
 	}
 	
-	public static Notebook excluir(String nome, String email, String mensagem) {
+	public static Notebook excluir(String serialNote, String modelo, String descricao, String estoque, String precoUnitario, String figura, String dataCadastro) {
 		Notebook notebook = null;
 		try {
 
@@ -90,10 +94,13 @@ public class NotebookDAO {
 
 			PreparedStatement comando = con.prepareStatement(sql);
 
-			comando.setString(1, nome);
-			comando.setString(2, email);
-			comando.setString(3, mensagem);
-
+			comando.setString(1, serialNote);
+			comando.setString(2, modelo);
+			comando.setString(3, descricao);
+			comando.setString(4, estoque);
+			comando.setString(5, precoUnitario);
+			comando.setString(6, figura);
+			comando.setString(7, dataCadastro);
 			comando.executeUpdate();
 
 		} catch (Exception e) {
