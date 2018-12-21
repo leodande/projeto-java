@@ -26,16 +26,17 @@ public class InfoNote {
 
 	Pedido pedido;
 
-	private static Cliente cliente = null;
+	Cliente cliente;
+	Funcionario funcionario;
+
 	@SuppressWarnings("unused")
 	private static Funcionario funcionarioGlobal = null;
 
-
 	boolean logado = false; // Indica se o usuário esta logado.
-
 	Configurador config;
 	Ajuda ajuda;
 
+	
 	private static final int LOGIN = 1;
 	private static final int CADASTRAR_USUARIO = 2;
 	private static final int BUSCAR_NOTEBOOK = 3;
@@ -44,7 +45,7 @@ public class InfoNote {
 	private static final int VER_CARRINHO = 6;
 	private static final int EFETUAR_COMPRA = 7;
 	private static final int AJUDA = 8;
-			private static final int AREA_ADMINISTRATIVA = 9;		;
+	private static final int AREA_ADMINISTRATIVA = 9;;
 	private static final int SAIR = 10;
 
 	public static void main(String[] args) {
@@ -52,6 +53,7 @@ public class InfoNote {
 		InfoNote info = new InfoNote();
 
 		int opcao = SAIR;
+	
 
 		do {
 
@@ -125,20 +127,20 @@ public class InfoNote {
 		// descricao, int estoque, double precoUnitario, String figura, String
 		// dataCadastro)
 
-		notebooks[0] = new Notebook("A1", 1, "Negativo N22BR", "CPU intel Core 2 Duo, Memória 2 GB, HD 250 GB", 6,
-				1200.00, "img\\n22br.jpg", "19/05/2011");
+		notebooks[0] = new Notebook("A1", "Negativo N22BR", "CPU intel Core 2 Duo, Memória 2 GB, HD 250 GB", 6, 1200.00,
+				"img\\n22br.jpg", "19/05/2011");
 
-		notebooks[1] = new Notebook("B22", 2, "Bell B55BR", "CPU intel I3, Memória 4 GB, HD 500 GB", 3, 1800.00,
+		notebooks[1] = new Notebook("B22", "Bell B55BR", "CPU intel I3, Memória 4 GB, HD 500 GB", 3, 1800.00,
 				"img\\b55br.jpg", "20/05/2011");
 
-		notebooks[2] = new Notebook("H02", 3, "Pompaq P41BR", "CPU intel I3, Memória 3 GB, HD 320 GB", 1, 1600.00,
+		notebooks[2] = new Notebook("H02", "Pompaq P41BR", "CPU intel I3, Memória 3 GB, HD 320 GB", 1, 1600.00,
 				"img\\p41br.jpg", "21/05/2011");
 
-		notebooks[3] = new Notebook("Z55", 4, "Negativo N22BR", "CPU intel Dual Core, Memória 2 GB, HD 160 GB", 5,
-				1100.00, "img\\cr71ch.jpg", "10/05/2011");
+		notebooks[3] = new Notebook("Z55", "Negativo N22BR", "CPU intel Dual Core, Memória 2 GB, HD 160 GB", 5, 1100.00,
+				"img\\cr71ch.jpg", "10/05/2011");
 
-		notebooks[4] = new Notebook("K20", 5, "Negativo N22BR", "CPU AMD Phenon II, Memória 4 GB, HD 500 GB", 2,
-				1900.00, "img\\bd22br.jpg", "10/05/2011");
+		notebooks[4] = new Notebook("K20", "Negativo N22BR", "CPU AMD Phenon II, Memória 4 GB, HD 500 GB", 2, 1900.00,
+				"img\\bd22br.jpg", "10/05/2011");
 
 	}
 
@@ -253,7 +255,7 @@ public class InfoNote {
 			}
 		}
 	}
-	
+
 	public void editarNotebooks() {
 		for (int i = 0; i < notebooks.length; i++) {
 			if (notebooks[i] != null) {
@@ -261,7 +263,7 @@ public class InfoNote {
 			}
 		}
 	}
-	
+
 	public void excluirNotebooks() {
 		for (int i = 0; i < notebooks.length; i++) {
 			if (notebooks[i] != null) {
@@ -324,7 +326,7 @@ public class InfoNote {
 		}
 
 	}
-	
+
 	public void cadastrarNotebooks() {
 		for (int i = 0; i < notebooks.length; i++) {
 			if (notebooks[i] != null) {
@@ -380,22 +382,22 @@ public class InfoNote {
 
 	private void excluirNotebook() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private void editarNotebook() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private void mostrarNotebooks() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private void cadastrarNotebook() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

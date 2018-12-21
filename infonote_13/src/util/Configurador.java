@@ -11,8 +11,8 @@ public class Configurador {
 	private String url;
 	private String driver;
 	private String login;
-	private String senha; 
-	
+	private String senha;
+
 	public Configurador() {
 
 		try {
@@ -32,8 +32,7 @@ public class Configurador {
 			driver = prop.getProperty("driver");
 			login = prop.getProperty("login");
 			senha = prop.getProperty("senha");
-				
-			
+
 		} catch (IOException ioe) {
 			System.out.println("Arquivo Config.ini não encontrado.");
 		}
@@ -66,7 +65,5 @@ public class Configurador {
 	public String getSenha() {
 		return senha;
 	}
-	
-	
 
 }

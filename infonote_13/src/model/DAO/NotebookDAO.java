@@ -5,47 +5,60 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-
 import model.Notebook;
 import util.Conexao;
+import util.Configurador;
 
 public class NotebookDAO {
-		
-	public static Notebook inserir(String serialNote, String modelo, String descricao, String estoque, String precoUnitario, String figura, String dataCadastro) {
+
+	Configurador config = new Configurador();
+	String url;
+	String driver;
+	String login;
+	String senha;
+
+	public NotebookDAO() {
+		url = config.getUrl();
+		driver = config.getDriver();
+		login = config.getLogin();
+		senha = config.getSenha();
+	}
+
+	public static Notebook inserir(String serialNote, String modelo, String descricao, int estoque,
+			double precoUnitario, String figura, String dataCadastro) {
+
 		Notebook notebook = null;
+		NotebookDAO noteDAO = new NotebookDAO();
 		try {
-			
+
 			// Criação do insert
 			String sql = "insert into contato (nome, email, mensagem) values (?,?,?)";
-			
-			//comando.setString(1,mensagem);
-			//comando.setInt(2,id);
-			
+
+			// comando.setString(1,mensagem);
+			// comando.setInt(2,id);
+
 			// Obter a conexão com o banco de dados
-			Conexao conex = new Conexao("jdbc:mysql://localhost:3306/18_conexaobd", "com.mysql.jdbc.Driver", "root",
-					"alunolab");
-			
-			// Abrir a conexão
+			Conexao conex = new Conexao(noteDAO.url, noteDAO.driver, noteDAO.login, noteDAO.senha);
 			Connection con = conex.obterConexao();
 
 			PreparedStatement comando = con.prepareStatement(sql);
 			comando.setString(1, serialNote);
 			comando.setString(2, modelo);
 			comando.setString(3, descricao);
-			comando.setString(4, estoque);
-			comando.setString(5, precoUnitario);
+			comando.setInt(4, estoque);
+			comando.setDouble(5, precoUnitario);
 			comando.setString(6, figura);
 			comando.setString(7, dataCadastro);
-			
+
 			// Comando executado
 			comando.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		notebook = new notebook(serialNote, modelo, descricao, estoque, precoUnitario, figura, dataCadastro);
+		notebook = new Notebook(serialNote, modelo, descricao, estoque, precoUnitario, figura, dataCadastro);
 		return notebook;
 	}
-	
+
 	public static Notebook[] buscarTodos() {
 		Notebook[] notebook = null;
 
@@ -67,8 +80,9 @@ public class NotebookDAO {
 			int i = 0;
 
 			while (rs.next()) {
-				notebook[i++] = new Notebooks(rs.setInt("serialNote"), rs.setString("modelo"), rs.setString("descricao"),
-						rs.setString("estoque"), rs.setString("precoUnitario"), rs.setString("figura"), rs.setString("dataCadastro"));
+				notebook[i++] = new Notebook(rs.getString("serialNote"), rs.getString("modelo"),
+						rs.getString("descricao"), rs.getInt("estoque"), rs.getDouble("precoUnitario"),
+						rs.getString("figura"), rs.getString("dataCadastro"));
 			}
 
 			rs.close();
@@ -80,8 +94,9 @@ public class NotebookDAO {
 		}
 		return notebook;
 	}
-	
-	public static Notebook excluir(String serialNote, String modelo, String descricao, String estoque, String precoUnitario, String figura, String dataCadastro) {
+
+	public static Notebook excluir(String serialNote, String modelo, String descricao, int estoque,
+			double precoUnitario, String figura, String dataCadastro) {
 		Notebook notebook = null;
 		try {
 
@@ -97,8 +112,8 @@ public class NotebookDAO {
 			comando.setString(1, serialNote);
 			comando.setString(2, modelo);
 			comando.setString(3, descricao);
-			comando.setString(4, estoque);
-			comando.setString(5, precoUnitario);
+			comando.setInt(4, estoque);
+			comando.setDouble(5, precoUnitario);
 			comando.setString(6, figura);
 			comando.setString(7, dataCadastro);
 			comando.executeUpdate();
@@ -110,27 +125,27 @@ public class NotebookDAO {
 		return notebook;
 
 	}
-	
-	public static Notebook atualizar(String mensagem, int id){
+
+	public static Notebook atualizar(String mensagem, int id) {
 		Notebook notebook = null;
 		try {
 			// Criação do insert
 			String sql = "update contato set mensagem = ? where id = ? ";
 			// Obter a conexão com o banco de dados
-			Conexao conex = new Conexao("jdbc:mysql://localhost:3306/conexaobd?useTimezone=true&serverTimezone=UTC", "com.mysql.jdbc.Driver", "jeffrey","password");			
+			Conexao conex = new Conexao("jdbc:mysql://localhost:3306/conexaobd?useTimezone=true&serverTimezone=UTC",
+					"com.mysql.jdbc.Driver", "jeffrey", "password");
 			// Abrir a conexão
 			Connection con = conex.obterConexao();
 			// Preparar o comando para ser executado
 			PreparedStatement comando = con.prepareStatement(sql);
-			comando.setString(1,mensagem);
-			comando.setInt(2,id);
+			comando.setString(1, mensagem);
+			comando.setInt(2, id);
 			// Comando executado
 			comando.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		return notebook;
-	}	
+	}
 
-	
 }

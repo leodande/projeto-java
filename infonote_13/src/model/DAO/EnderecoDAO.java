@@ -15,7 +15,7 @@ public class EnderecoDAO {
 	String senha;
 
 	public EnderecoDAO() {
-		
+
 		url = config.getUrl();
 		driver = config.getDriver();
 		login = config.getLogin();
@@ -26,7 +26,7 @@ public class EnderecoDAO {
 			String estado, String cep, String codigoCliente) {
 		Endereco endereco = null;
 		EnderecoDAO endDAO = new EnderecoDAO();
-		
+
 		try {
 			// Criação do insert
 			String sql = "insert into endereco " + "(logradouro, numero, complemento, bairro, cidade, "
@@ -48,7 +48,7 @@ public class EnderecoDAO {
 			// não é fkcodigocliente, porque aqui a referência é da Classe
 			// Comando executado
 			comando.executeUpdate();
-			
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

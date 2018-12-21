@@ -3,7 +3,7 @@ package model;
 import model.DAO.ClienteDAO;
 
 public class Cliente extends Usuario implements IUsuario {
-	
+
 	@SuppressWarnings("unused")
 	private String nomeInvertido;
 	private String codigoCliente;
@@ -16,12 +16,12 @@ public class Cliente extends Usuario implements IUsuario {
 	@Override
 	public boolean validarLogin(String login, String senha) {
 		Cliente cliente = ClienteDAO.buscarPorLoginSenha(login, senha);
-		if(cliente != null) {
+		if (cliente != null) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	@Override
 	public String toString() {
 		final String ENTER = "\n";
@@ -34,23 +34,22 @@ public class Cliente extends Usuario implements IUsuario {
 		return retValue;
 
 	}
-	
+
 	public String getNomeInvertido() {
 		String nome, sobrenome;
-		
+
 		int posicao = getNome().indexOf("");
 		nome = getNome().substring(0, posicao);
-		
+
 		posicao = getNome().lastIndexOf(" ");
 		sobrenome = getNome().substring(posicao + 1);
-		
+
 		return sobrenome + ", " + nome;
 	}
 
 	public void setNomeInvertido(String nomeInvertido) {
 		this.nomeInvertido = nomeInvertido;
 	}
-
 
 	public String getCodigoCliente() {
 		return codigoCliente;
